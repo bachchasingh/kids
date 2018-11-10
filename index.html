@@ -4,13 +4,13 @@
 <title>Multiply</title>
 <style>
 body,#i { font-size:40px; color:blue; }
-.wrapper { width:155px; margin:50px auto; padding:25px 50px; border:5px solid yellow;  }
-.wrapper-1 { width:235px; margin:10px auto; padding:10px; border:5px solid yellow;  }
-span { width:45px; display:inline-block; text-align:right;}
-#h,#f, #s { width:55px;  }
-#i { width:120px; height:50px; border:none; text-align:right; border-top:2px solid; border-bottom:2px solid;  }
-a { text-decoration:none; width:100px; display:inline-block; color:green; font-size:30px; }
-#r,#si { width:100px; }
+.wrapper { width:255px; margin:50px auto; padding:25px 50px; border:5px solid yellow;  }
+.wrapper-1 { width:335px; margin:10px auto; padding:10px; border:5px solid yellow;  }
+span { width:95px; display:inline-block; text-align:right;}
+#h,#f, #s { width:105px;  }
+#i { width:220px; height:50px; border:none; text-align:right; border-top:2px solid; border-bottom:2px solid;  }
+a { text-decoration:none; width:150px; display:inline-block; color:green; font-size:30px; }
+#r,#si { width:150px; }
 </style>
 </head>
 <body onload="random();">
@@ -39,6 +39,7 @@ a { text-decoration:none; width:100px; display:inline-block; color:green; font-s
 </div>
 <script>
 function random() {
+	check();
     var f = Math.floor((Math.random() * 10) + 2);
     var s = Math.floor((Math.random() * 10) + 2);
     document.getElementById("f").innerHTML = f;
