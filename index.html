@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiply</title>
+<style>
+body,#i { font-size:40px; color:blue; }
+.wrapper { width:155px; margin:50px auto; padding:25px 50px; border:5px solid yellow;  }
+.wrapper-1 { width:235px; margin:10px auto; padding:10px; border:5px solid yellow;  }
+span { width:45px; display:inline-block; text-align:right;}
+#h,#f, #s { width:55px;  }
+#i { width:120px; height:50px; border:none; text-align:right; border-top:2px solid; border-bottom:2px solid;  }
+a { text-decoration:none; width:100px; display:inline-block; color:green; font-size:30px; }
+#r,#si { width:100px; }
+</style>
+</head>
+<body onload="random();">
+
+<div class="wrapper">
+<span>&nbsp;</span>
+<span id="h">TO</span>
+<br/>
+<span>&nbsp;</span>
+<span id="f">11</span>
+<br/>
+<span>x</span>
+<span id="s">5</span>
+<br/>
+<span><input id="i" type="text" onkeypress='validate(event)'/></span>
+
+</div>
+
+<div class="wrapper-1">
+<span id="r">0</span> | <span id="si">-</span>
+</div>
+
+<div class="wrapper-1">
+<a href="javascript:void(0);" onclick="check();">Check</a> | 
+<a href="javascript:void(0);" onclick="random();">Next</a>
+</div>
+<script>
+function random() {
+    var f = Math.floor((Math.random() * 10) + 2);
+    var s = Math.floor((Math.random() * 10) + 2);
+    document.getElementById("f").innerHTML = f;
+    document.getElementById("s").innerHTML = s;
+	document.getElementById("i").value = '';
+	document.getElementById("si").innerHTML = '-';
+	document.getElementById("si").style.color = 'blue';
+}
+
+function check() {
+	var f = parseInt(document.getElementById("f").innerHTML);
+	var s = parseInt(document.getElementById("s").innerHTML);
+	var m = f * s; 
+	var i = parseInt(document.getElementById("i").value);
+	
+
+	if(m===i) {
+		var r = parseInt(document.getElementById("r").innerHTML);
+		document.getElementById("r").innerHTML = r + 10;
+		document.getElementById("si").innerHTML = '&#10004;';
+		document.getElementById("si").style.color = 'green';
+	} else {
+		document.getElementById("si").innerHTML = '&#10006;';
+		document.getElementById("si").style.color = 'red';
+	}
+}
+
+function validate(evt) {
+  var theEvent = evt || window.event;
+
+  // Handle paste
+  if (theEvent.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+  } else {
+  // Handle key press
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+
+</script>
+</body>
+</html>
